@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>I.D. - Developer</title>
+        <link rel="stylesheet" href="style/main.css" />
+    </head>
+    <body>
+        <!--Sidebar-->
+        <nav class="sidebar">
+            <div class="sidebar-handle">
+                <span class="handle-line"></span>
+                <span class="handle-line"></span>
+                <span class="handle-line"></span>
+            </div>
+            <ul class="sidebar-links">
+                <li>
+                    <a href="#about" data-en="About Me" data-nl="Over Mij"
+                        >About Me</a
+                    >
+                </li>
+                <li>
+                    <a href="#projects" data-en="Projects" data-nl="Projecten"
+                        >Projects</a
+                    >
+                </li>
+                <li>
+                    <a href="#contact" data-en="Contact Me" data-nl="Contact"
+                        >Contact Me</a
+                    >
+                </li>
+                <li class="lang-toggle-item">
+                    <button
+                        class="lang-toggle"
+                        onclick="toggleLanguage()"
+                        aria-label="Toggle language"
+                    >
+                        <span
+                            class="lang-toggle-label"
+                            data-en="NL"
+                            data-nl="EN"
+                            >NL</span
+                        >
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+        <!--Bottom Bar-->
+        <nav class="bottom-bar">
+            <a href="#about" class="bottom-bar-btn" aria-label="About Me">
+                <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <circle cx="12" cy="8" r="4" />
+                    <path d="M20 21a8 8 0 0 0-16 0" />
+                </svg>
+            </a>
+            <a href="#projects" class="bottom-bar-btn" aria-label="Projects">
+                <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <rect x="3" y="3" width="7" height="7" rx="1" />
+                    <rect x="14" y="3" width="7" height="7" rx="1" />
+                    <rect x="3" y="14" width="7" height="7" rx="1" />
+                    <rect x="14" y="14" width="7" height="7" rx="1" />
+                </svg>
+            </a>
+            <a href="#contact" class="bottom-bar-btn" aria-label="Contact Me">
+                <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="M22 4L12 13L2 4" />
+                </svg>
+            </a>
+            <button
+                class="bottom-bar-btn lang-toggle-mobile"
+                onclick="toggleLanguage()"
+                aria-label="Toggle language"
+            >
+                <span class="lang-toggle-label" data-en="NL" data-nl="EN"
+                    >NL</span
+                >
+            </button>
+        </nav>
+
+        <!--Main Content-->
+        <main class="main-content">
+            <!--Hero Section-->
+            <section class="hero-section">
+                <div class="hero-glass">
+                    <p
+                        class="hero-greeting"
+                        data-en="Hello, I'm"
+                        data-nl="Hallo, ik ben"
+                    >
+                        Hello, I'm
+                    </p>
+                    <h1 class="hero-name">Iwan Djudaric</h1>
+                    <p
+                        class="hero-tagline"
+                        data-en="A creative software developer who enjoys working on front-end intensive projects."
+                        data-nl="Een creatieve softwareontwikkelaar die graag werkt aan front-end intensieve projecten."
+                    >
+                        A creative software developer who enjoys working on
+                        front-end intensive projects.
+                    </p>
+                </div>
+            </section>
+
+            <!--About Section-->
+            <section id="about" class="about-section">
+                <div class="section-card glass-card">
+                    <h2
+                        class="section-title"
+                        data-en="About Me"
+                        data-nl="Over Mij"
+                    >
+                        About Me
+                    </h2>
+                    <div class="about-body">
+                        <p
+                            data-en="I'm a developer who enjoys coding clean, visually appealing software that looks good on any device. I have a strong sense of passion for aesthetics and user experience, which I strive to implement as much as possible into my work."
+                            data-nl="Ik ben een ontwikkelaar die graag strakke, visueel aantrekkelijke software bouwt die er goed uitziet op elk apparaat. Ik heb een sterke passie voor esthetiek en gebruikerservaring, wat ik zo veel mogelijk probeer te verwerken in mijn werk."
+                        >
+                            I'm a developer who enjoys coding clean, visually
+                            appealing software that looks good on any device. I
+                            have a strong sense of passion for aesthetics and
+                            user experience, which I strive to implement as much
+                            as possible into my work.
+                        </p>
+                        <p
+                            data-en="When I'm not writing code, I enjoy spending time thinking of different designs to work out, whilst also enjoying other creative fields outside programming websites. Such as game development and music production."
+                            data-nl="Als ik geen code schrijf, geniet ik ervan om na te denken over verschillende ontwerpen, terwijl ik ook geniet van andere creatieve gebieden buiten het programmeren van websites. Zoals game-ontwikkeling en muziekproductie."
+                        >
+                            When I'm not writing code, I enjoy spending time
+                            thinking of different designs to work out, whilst
+                            also enjoying other creative fields outside
+                            programming websites. Such as game development and
+                            music production.
+                        </p>
+                        <div class="about-details">
+                            <div class="detail-item">
+                                <span
+                                    class="detail-label"
+                                    data-en="Location"
+                                    data-nl="Locatie"
+                                    >Location</span
+                                >
+                                <span
+                                    class="detail-value"
+                                    data-en="Barendrecht"
+                                    data-nl="Barendrecht"
+                                    >Barendrecht</span
+                                >
+                            </div>
+                            <div class="detail-item">
+                                <span
+                                    class="detail-label"
+                                    data-en="Focus"
+                                    data-nl="Focus"
+                                    >Focus</span
+                                >
+                                <span
+                                    class="detail-value"
+                                    data-en="Full-Stack Development"
+                                    data-nl="Full-Stack Ontwikkeling"
+                                    >Full-Stack Development</span
+                                >
+                            </div>
+                            <div class="detail-item">
+                                <span
+                                    class="detail-label"
+                                    data-en="Status"
+                                    data-nl="Status"
+                                    >Status</span
+                                >
+                                <span
+                                    class="detail-value"
+                                    data-en="Open to opportunities"
+                                    data-nl="Open voor kansen"
+                                    >Open to opportunities</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--Projects Section-->
+            <section id="projects" class="projects-section">
+                <div class="section-card glass-card">
+                    <h2
+                        class="section-title"
+                        data-en="Projects"
+                        data-nl="Projecten"
+                    >
+                        Projects
+                    </h2>
+                    <div class="projects-grid">
+                        <a href="https://github.com/IwanDjudaric/Yume-Ramen">
+                            <div class="project-card glass-card-inner">
+                                <h3 class="project-name">Yume Ramen</h3>
+                                <p
+                                    class="project-desc"
+                                    data-en="A food ordering app for a ramen restaurant, using Bootstrap, Javascript, and PHP."
+                                    data-nl="Een bestel-app voor een ramenrestaurant, gemaakt met Bootstrap, Javascript en PHP."
+                                >
+                                    A food ordering app for a ramen restaurant,
+                                    using Bootstrap, Javascript, and PHP.
+                                </p>
+                                <div class="project-tags">
+                                    <span class="tag">JavaScript</span>
+                                    <span class="tag">PHP</span>
+                                    <span class="tag">Bootstrap</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://github.com/IwanDjudaric/Vroid">
+                            <div class="project-card glass-card-inner">
+                                <h3 class="project-name">
+                                    My VRoid Experience
+                                </h3>
+                                <p
+                                    class="project-desc"
+                                    data-en="A website where I logged and spoke of my brief experience modeling using the VRoid program, taking styling inspiration for the website from earlier 2010's creative styles."
+                                    data-nl="Een website waarop ik mijn korte ervaring met modelleren in het VRoid-programma heb vastgelegd en besproken, met stylinginspiratie voor de website uit creatieve stijlen van begin jaren 2010."
+                                >
+                                    A website where I logged and spoke of my
+                                    brief experience modeling using the VRoid
+                                    program, taking styling inspiration for the
+                                    website from earlier 2010's creative styles.
+                                </p>
+                                <div class="project-tags">
+                                    <span class="tag">CSS</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!--Contact Section-->
+            <section id="contact" class="contact-section">
+                <div class="section-card glass-card">
+                    <h2
+                        class="section-title"
+                        data-en="Contact Me"
+                        data-nl="Neem Contact Op"
+                    >
+                        Contact Me
+                    </h2>
+                    <p
+                        class="contact-intro"
+                        data-en="Want to get in touch with me? Here's where you can find me."
+                        data-nl="Wil je contact met me opnemen? Hier kun je me vinden."
+                    >
+                        Want to get in touch with me? Here's where you can find
+                        me.
+                    </p>
+                    <div class="contact-list">
+                        <a
+                            href="mailto:djudariciwan@gmail.com"
+                            class="contact-item glass-card-inner"
+                        >
+                            <div class="contact-icon">
+                                <svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <rect
+                                        x="2"
+                                        y="4"
+                                        width="20"
+                                        height="16"
+                                        rx="2"
+                                    />
+                                    <path d="M22 4L12 13L2 4" />
+                                </svg>
+                            </div>
+                            <div class="contact-info">
+                                <span class="contact-label">Email</span>
+                                <span class="contact-value"
+                                    >djudariciwan@gmail.com</span
+                                >
+                            </div>
+                        </a>
+                        <a
+                            href="tel:+31623658984"
+                            class="contact-item glass-card-inner"
+                        >
+                            <div class="contact-icon">
+                                <svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                                    />
+                                </svg>
+                            </div>
+                            <div class="contact-info">
+                                <span
+                                    class="contact-label"
+                                    data-en="Phone"
+                                    data-nl="Telefoon"
+                                    >Phone</span
+                                >
+                                <span class="contact-value"
+                                    >+31 6 23658984</span
+                                >
+                            </div>
+                        </a>
+                        <a
+                            href="https://github.com/IwanDjudaric"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="contact-item glass-card-inner"
+                        >
+                            <div class="contact-icon">
+                                <svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                >
+                                    <path
+                                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+                                    />
+                                </svg>
+                            </div>
+                            <div class="contact-info">
+                                <span class="contact-label">GitHub</span>
+                                <span class="contact-value"
+                                    >github.com/IwanDjudaric</span
+                                >
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <script src="script/lang.js"></script>
+    </body>
+</html>

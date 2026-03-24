@@ -1,2 +1,2 @@
 # Portfolio
-My portfolio site
+My portfolio website. This showcases me, my skills, and my projects
