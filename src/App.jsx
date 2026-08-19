@@ -276,7 +276,7 @@ function App() {
         >
           djudariciwan@gmail.com
         </a>
-        <div className="footer-bottom" data-reveal style={{ '--i': 1 }}>
+        <div className="footer-bottom">
           <div className="socials mono">
             <a href="https://www.linkedin.com/in/iwan-djudaric-3443053a6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://github.com/IwanDjudaric" target="_blank" rel="noopener noreferrer">GitHub</a>

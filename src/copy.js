@@ -37,7 +37,7 @@ export const copy = {
     ],
     about: {
       index: 'About',
-      text: "I'm a developer who enjoys turning ideas into clean, functional products. My interest in development started as a kid wanting to make Roblox games, then picked back up when I began studying Creative Software Development at Grafisch Lyceum Rotterdam. That's where my journey really started. I care about writing code that's simple to read and easy to maintain, and I'm always looking for ways to expand my skills. Right now I'm working toward building my first big game, with the goal of eventually releasing it on Steam. Outside of code, I dabble in music production and enjoy exploring new technologies and techniques simply because they interest me.",
+      text: "My interest in development goes back to being a kid who wanted to build games in Roblox. That curiosity resurfaced when I started studying Creative Software Development at Grafisch Lyceum Rotterdam, and that's where things properly took off. Since then I've gravitated toward projects that push me somewhere new: a different framework, a different language, a problem I haven't tackled before. Right now that means working toward my first full game, with the goal of eventually shipping it on Steam. Outside of code I produce music, and it scratches the same itch as picking up new tech: I like taking something apart to understand how it works, then building it back up.",
       facts: [
         { term: 'Focus', value: 'Full-Stack Development' },
         {
@@ -85,7 +85,7 @@ export const copy = {
     ],
     about: {
       index: 'Over',
-      text: 'Ik ben een ontwikkelaar die er plezier in heeft om ideeën om te zetten in strakke, functionele producten. Mijn interesse in ontwikkeling begon als kind, toen ik Roblox-games wilde maken. Later pakte ik het weer op toen ik Creative Software Development ging studeren aan het Grafisch Lyceum Rotterdam. Daar begon mijn traject pas echt. Ik hecht waarde aan code die makkelijk te lezen en te onderhouden is, en ik ben altijd op zoek naar manieren om mijn vaardigheden uit te breiden. Op dit moment werk ik aan mijn eerste grote game, met als doel die uiteindelijk op Steam uit te brengen. Naast het programmeren houd ik me bezig met muziekproductie en verdiep ik me graag in nieuwe technologieën en technieken, simpelweg omdat ze me interesseren.',
+      text: 'Mijn interesse in ontwikkeling gaat terug naar mijn jeugd, toen ik games wilde bouwen in Roblox. Die nieuwsgierigheid kwam weer boven toen ik Creative Software Development ging studeren aan het Grafisch Lyceum Rotterdam, en daar kwam het pas echt op gang. Sindsdien voel ik me aangetrokken tot projecten die me iets nieuws laten doen: een ander framework, een andere taal, een probleem dat ik nog niet eerder heb aangepakt. Op dit moment werk ik aan mijn eerste volledige game, met als doel die uiteindelijk op Steam uit te brengen. Naast het programmeren maak ik muziek, en dat kriebelt op dezelfde manier als het oppikken van nieuwe technologie: ik haal graag iets uit elkaar om te snappen hoe het werkt, en bouw het dan weer op.',
       facts: [
         { term: 'Focus', value: 'Full-stack development' },
         {
