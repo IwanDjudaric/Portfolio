@@ -1,0 +1,187 @@
+:root {
+  --bg: #e7e5e0;
+  --panel: #f2f1ed;
+  --ink: #171614;
+  --grey: #6f6d68;
+  --grey-light: #9d9b95;
+  --line: #171614;
+  --line-soft: #c8c6c0;
+  --invert-bg: #171614;
+  --invert-ink: #e7e5e0;
+
+  --glass-bg: rgba(252, 251, 249, 0.5);
+  --glass-bg-strong: rgba(252, 251, 249, 0.76);
+  --glass-border: rgba(23, 22, 20, 0.1);
+  --glass-hi: rgba(255, 255, 255, 0.7);
+  --glass-shadow:
+    0 1px 1px rgba(23, 22, 20, 0.04), 0 10px 30px -14px rgba(23, 22, 20, 0.22);
+  --glass-shadow-lift:
+    0 2px 4px rgba(23, 22, 20, 0.06), 0 26px 50px -20px rgba(23, 22, 20, 0.34);
+  --glow-a: rgba(58, 46, 36, 0.26);
+  --glow-b: rgba(232, 154, 96, 0.24);
+  --dot: rgba(23, 22, 20, 0.11);
+
+  --sans: 'Space Grotesk', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+
+  font: 17px/1.5 var(--sans);
+  color-scheme: light dark;
+  color: var(--ink);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 720px) {
+    font-size: 15px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #171614;
+    --panel: #1e1d1a;
+    --ink: #e7e5e0;
+    --grey: #96948d;
+    --grey-light: #57554f;
+    --line: #e7e5e0;
+    --line-soft: #3a3833;
+    --invert-bg: #e7e5e0;
+    --invert-ink: #171614;
+
+    --glass-bg: rgba(40, 38, 34, 0.48);
+    --glass-bg-strong: rgba(34, 32, 29, 0.76);
+    --glass-border: rgba(231, 229, 224, 0.12);
+    --glass-hi: rgba(255, 255, 255, 0.1);
+    --glass-shadow:
+      0 1px 1px rgba(0, 0, 0, 0.3), 0 10px 30px -14px rgba(0, 0, 0, 0.65);
+    --glass-shadow-lift:
+      0 2px 4px rgba(0, 0, 0, 0.35), 0 26px 50px -20px rgba(0, 0, 0, 0.8);
+    --glow-a: rgba(126, 100, 74, 0.3);
+    --glow-b: rgba(198, 116, 64, 0.24);
+    --dot: rgba(231, 229, 224, 0.1);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  min-height: 100svh;
+  /* clip, not hidden: `hidden` would make #root a scroll container and break
+     the sticky nav's positioning against the viewport. */
+  overflow-x: clip;
+  border-inline: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  /* Two identical dot layers offset by half a tile stagger the rows, so the
+     dots read as diagonal lines rather than a square grid. */
+  background-image:
+    radial-gradient(var(--dot) 1px, transparent 1.5px),
+    radial-gradient(var(--dot) 1px, transparent 1.5px);
+  background-size: 34px 34px;
+  background-position:
+    0 0,
+    17px 17px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--sans);
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+p {
+  margin: 0;
+  color: var(--grey);
+}
+
+a {
+  color: inherit;
+}
+
+.mono {
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.rule {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 0;
+}
+
+/* ---------- ambient colour behind the frosted panels ---------- */
+
+.ambience {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.glow {
+  position: absolute;
+  display: block;
+  width: 60vmax;
+  height: 60vmax;
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.glow-a {
+  top: -18vmax;
+  left: -10vmax;
+  background: radial-gradient(circle, var(--glow-a), transparent 68%);
+}
+
+.glow-b {
+  right: -16vmax;
+  bottom: -14vmax;
+  background: radial-gradient(circle, var(--glow-b), transparent 68%);
+}
+
+/* ---------- frosted panel ---------- */
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.tick {
+  position: relative;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    border: 6px solid transparent;
+  }
+  &::before {
+    left: -1px;
+    border-left-color: var(--line);
+  }
+  &::after {
+    right: -1px;
+    border-right-color: var(--line);
+  }
+}

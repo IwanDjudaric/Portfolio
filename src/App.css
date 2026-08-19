@@ -1,0 +1,498 @@
+/* ---------- reveal on scroll ---------- */
+
+/* The animation only declares `from`; the implicit `to` is the element's own
+   computed style, so per-element transforms (the tilts below) survive intact
+   and keep a delay-free transition of their own once the reveal has played. */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 26px, 0);
+  }
+}
+
+[data-reveal] {
+  opacity: 0;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  animation: reveal 0.75s cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+  animation-delay: calc(var(--i, 0) * 80ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  [data-reveal].is-visible {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+/* ---------- nav ---------- */
+
+#nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 32px;
+  gap: 16px;
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border-bottom: 1px solid var(--glass-border);
+
+  @media (max-width: 720px) {
+    padding: 16px 20px;
+    flex-wrap: wrap;
+  }
+}
+
+.mark {
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  @media (max-width: 480px) {
+    gap: 14px;
+  }
+}
+
+#nav nav {
+  display: flex;
+  gap: 28px;
+
+  @media (max-width: 480px) {
+    gap: 16px;
+  }
+}
+
+/* ---------- language toggle ---------- */
+
+.lang-toggle {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+}
+
+.lang-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--grey);
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 5px 11px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    color 0.25s ease;
+
+  &:hover {
+    color: var(--ink);
+  }
+
+  &:focus-visible {
+    outline: 1px solid var(--ink);
+    outline-offset: 2px;
+  }
+}
+
+.lang-btn.is-active {
+  background: var(--invert-bg);
+  color: var(--invert-ink);
+}
+
+#nav nav a {
+  position: relative;
+  font-family: var(--mono);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  padding-bottom: 2px;
+  color: var(--grey);
+  transition: color 0.25s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  &:hover {
+    color: var(--ink);
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+/* ---------- hero ---------- */
+
+/* --px / --py are written by the pointer-tilt hook on #hero and inherit down.
+   #hero itself stays transform-free so it does not become a backdrop root and
+   clip the frosted blur of .hero-meta inside it. */
+#hero {
+  padding: 72px 32px 80px;
+
+  @media (max-width: 720px) {
+    padding: 48px 20px 56px;
+  }
+}
+
+.hero-inner {
+  max-width: 100%;
+}
+
+.index-label {
+  display: block;
+  font-size: 13px;
+  color: var(--grey);
+  margin-bottom: 24px;
+}
+
+#hero h1 {
+  font-size: clamp(40px, 7vw, 88px);
+  line-height: 0.98;
+  margin-bottom: 32px;
+  transform: perspective(1200px) rotateX(calc(var(--py, 0) * -3deg))
+    rotateY(calc(var(--px, 0) * 5deg)) translateZ(38px);
+  transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.lede {
+  max-width: 46ch;
+  font-size: 18px;
+  line-height: 1.6;
+  transform: perspective(1200px) rotateX(calc(var(--py, 0) * -1.5deg))
+    rotateY(calc(var(--px, 0) * 2.5deg)) translateZ(14px);
+  transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+  margin-top: 32px;
+  font-size: 12px;
+  color: var(--grey);
+}
+
+/* ---------- section heads ---------- */
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 32px 32px 20px;
+  gap: 16px;
+
+  @media (max-width: 720px) {
+    padding: 24px 20px 14px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+
+.section-head h2 {
+  font-size: 15px;
+}
+
+.grey {
+  color: var(--grey);
+  font-size: 12px;
+}
+
+/* ---------- work list ---------- */
+
+#work {
+  padding-bottom: 16px;
+}
+
+.work-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @media (max-width: 720px) {
+    padding: 0 20px;
+  }
+}
+
+.work-list li {
+  display: grid;
+  grid-template-columns: 48px 1fr auto auto;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 26px;
+  border-radius: 18px;
+  cursor: default;
+  transform: perspective(900px) rotateX(calc(var(--py, 0) * -2.2deg))
+    rotateY(calc(var(--px, 0) * 2.6deg)) translateY(var(--lift, 0px));
+  transition:
+    transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1),
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.4s ease,
+    border-color 0.3s ease;
+
+  @media (max-width: 720px) {
+    grid-template-columns: 32px 1fr;
+    grid-template-rows: auto auto;
+    padding: 20px;
+    gap: 16px;
+    row-gap: 6px;
+  }
+}
+
+.work-list li:hover {
+  --lift: -4px;
+  background: var(--invert-bg);
+  border-color: transparent;
+  color: var(--invert-ink);
+  box-shadow: var(--glass-shadow-lift);
+}
+
+.work-list li:hover .w-title,
+.work-list li:hover .w-tag,
+.work-list li:hover .w-year,
+.work-list li:hover .w-n,
+.work-list li:hover .w-detail,
+.work-list li:hover .w-detail p,
+.work-list li:hover .w-detail .w-tech {
+  color: var(--invert-ink);
+}
+
+.w-n {
+  font-size: 13px;
+  color: var(--grey);
+  transition: color 0.3s ease;
+}
+
+.w-title {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+
+  @media (max-width: 720px) {
+    grid-column: 2;
+    font-size: 18px;
+  }
+}
+
+.w-tag {
+  font-size: 12px;
+  color: var(--grey);
+  transition: color 0.3s ease;
+
+  @media (max-width: 720px) {
+    grid-column: 2;
+  }
+}
+
+.w-year {
+  font-size: 12px;
+  color: var(--grey);
+  transition: color 0.3s ease;
+
+  @media (max-width: 720px) {
+    display: none;
+  }
+}
+
+.w-detail {
+  grid-column: 1 / -1;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin-top: 0;
+  transition:
+    max-height 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+    opacity 0.3s ease,
+    margin-top 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.work-list li:hover .w-detail {
+  max-height: 160px;
+  opacity: 1;
+  margin-top: 16px;
+}
+
+.w-detail p {
+  font-size: 14px;
+  line-height: 1.55;
+  max-width: 60ch;
+  margin: 0 0 10px;
+  transition: color 0.3s ease;
+}
+
+.w-detail .w-tech {
+  font-size: 11px;
+  color: var(--grey);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: color 0.3s ease;
+}
+
+/* ---------- about ---------- */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  padding: 8px 32px 56px;
+
+  @media (max-width: 720px) {
+    grid-template-columns: 1fr;
+    padding: 8px 20px 40px;
+    gap: 32px;
+  }
+}
+
+.about-text {
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--ink);
+  max-width: 42ch;
+}
+
+.facts {
+  margin: 0;
+  padding: 8px 24px;
+  border-radius: 20px;
+  align-self: start;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--glass-border);
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      gap: 4px;
+    }
+  }
+
+  dt {
+    font-size: 12px;
+    color: var(--grey);
+    flex-shrink: 0;
+  }
+
+  dd {
+    margin: 0;
+    text-align: right;
+    color: var(--ink);
+
+    @media (max-width: 480px) {
+      text-align: left;
+    }
+  }
+}
+
+/* ---------- footer / contact ---------- */
+
+#contact {
+  padding: 0 32px 48px;
+  margin-top: auto;
+
+  @media (max-width: 720px) {
+    padding: 0 20px 32px;
+  }
+}
+
+.contact-line {
+  display: block;
+  font-family: var(--mono);
+  font-size: clamp(24px, 5vw, 44px);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  padding: 24px 0 40px;
+  border-bottom: 1px solid var(--glass-border);
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--grey);
+  }
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 24px;
+  gap: 16px;
+  font-size: 12px;
+
+  @media (max-width: 720px) {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+.socials {
+  display: flex;
+  gap: 20px;
+  font-size: 12px;
+
+  a {
+    position: relative;
+    text-decoration: none;
+    color: var(--grey);
+    transition: color 0.25s ease;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 100%;
+      height: 1px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    &:hover {
+      color: var(--ink);
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+}
