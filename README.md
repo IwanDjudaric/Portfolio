@@ -1,16 +1,41 @@
-# React + Vite
+# Iwan Djudaric — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio site, built with React and Vite. Single-page, bilingual (EN/NL), with a project index, about section, and contact links.
 
-Currently, two official plugins are available:
+Live at [iwandjudaric.github.io/Dev](https://iwandjudaric.github.io/Dev/).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Stack
 
-## React Compiler
+- React 19 + Vite
+- Plain CSS (no framework) — scroll-reveal and pointer-tilt effects via small custom hooks
+- Locale switching (EN/NL) with content in [`src/copy.js`](src/copy.js)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting started
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Other scripts:
+
+```bash
+npm run build    # production build to dist/
+npm run preview  # preview the production build locally
+npm run lint      # eslint
+```
+
+## Structure
+
+```
+src/
+  App.jsx      # page layout and interaction hooks (scroll reveal, tilt)
+  copy.js      # all site copy, per locale, plus locale-independent project facts
+  App.css      # styling
+```
+
+Content (hero text, project descriptions, about, translations) lives in `src/copy.js` — update that file rather than `App.jsx` to change what the site says.
+
+## Deployment
+
+Built for GitHub Pages as a project page, hence the `/Dev/` base path in `vite.config.js`. Adjust that if the repo is renamed or deployed elsewhere.
